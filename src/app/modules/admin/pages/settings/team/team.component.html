@@ -1,0 +1,164 @@
+<div class="w-full max-w-3xl">
+
+    <!-- Form -->
+    <form [formGroup]="appForm">
+
+        <!-- Section -->
+        <div class="w-full">
+            <div class="text-xl">Social Account Settings</div>
+            <div class="text-secondary">Basic Social Account Settings will be available here.</div>
+        </div>
+        <div class="grid sm:grid-cols-4 gap-6 w-full mt-8">
+            <!-- Name -->
+            <div class="sm:col-span-4">
+                <mat-form-field class="fuse-mat-no-subscript w-full">
+                    <mat-label>GOOGLE MAP KEY</mat-label>
+                    <mat-icon class="icon-size-5" [svgIcon]="'heroicons_solid:briefcase'" matPrefix></mat-icon>
+                    <input [formControlName]="'googlemap_key'" matInput>
+                </mat-form-field>
+            </div>
+            <div class="sm:col-span-4">
+                <mat-form-field class="fuse-mat-no-subscript w-full">
+                    <mat-label>TWILIO SID</mat-label>
+                    <mat-icon class="icon-size-5" [svgIcon]="'heroicons_solid:briefcase'" matPrefix></mat-icon>
+                    <input [formControlName]="'twilio_sid'" matInput>
+                </mat-form-field>
+            </div>
+           
+            <!-- Username -->
+            <div class="sm:col-span-4">
+                <mat-form-field class="fuse-mat-no-subscript w-full">
+                    <mat-label>TWILIO TOKEN</mat-label>
+                    <mat-icon class="icon-size-5" [svgIcon]="'heroicons_solid:briefcase'" matPrefix></mat-icon>
+                    <input [formControlName]="'twilio_token'" matInput>
+                </mat-form-field>
+            </div>
+
+            <div class="sm:col-span-4">
+                <mat-form-field class="fuse-mat-no-subscript w-full">
+                    <mat-label>TWILIO NUMBER</mat-label>
+                    <mat-icon class="icon-size-5" [svgIcon]="'heroicons_solid:briefcase'" matPrefix></mat-icon>
+                    <input [formControlName]="'twilio_number'" matInput>
+                </mat-form-field>
+            </div>
+            <div class="sm:col-span-4">
+                <mat-form-field class="fuse-mat-no-subscript w-full">
+                    <mat-label>FB_CLIENT_ID</mat-label>
+                    <mat-icon class="icon-size-5" [svgIcon]="'heroicons_solid:briefcase'" matPrefix></mat-icon>
+                    <input [formControlName]="'fb_client_id'" matInput>
+                </mat-form-field>
+            </div>
+
+            <div class="sm:col-span-4">
+                <mat-form-field class="fuse-mat-no-subscript w-full">
+                    <mat-label>FB_CLIENT_SECRET</mat-label>
+                    <mat-icon class="icon-size-5" [svgIcon]="'heroicons_solid:briefcase'" matPrefix></mat-icon>
+                    <input [formControlName]="'fb_client_secret'" matInput>
+                </mat-form-field>
+            </div>
+
+            <div class="sm:col-span-4">
+                <mat-form-field class="fuse-mat-no-subscript w-full">
+                    <mat-label>FB_REDIRECT</mat-label>
+                    <mat-icon class="icon-size-5" [svgIcon]="'heroicons_solid:briefcase'" matPrefix></mat-icon>
+                    <input [formControlName]="'fb_redirect'" matInput>
+                </mat-form-field>
+            </div>
+            <div class="sm:col-span-4">
+                <mat-form-field class="fuse-mat-no-subscript w-full">
+                    <mat-label>GOOGLE_CLIENT_ID</mat-label>
+                    <mat-icon class="icon-size-5" [svgIcon]="'heroicons_solid:briefcase'" matPrefix></mat-icon>
+                    <input [formControlName]="'google_client_id'" matInput>
+                </mat-form-field>
+            </div>
+
+            <div class="sm:col-span-4">
+                <mat-form-field class="fuse-mat-no-subscript w-full">
+                    <mat-label>GOOGLE_CLIENT_SECRET</mat-label>
+                    <mat-icon class="icon-size-5" [svgIcon]="'heroicons_solid:briefcase'" matPrefix></mat-icon>
+                    <input [formControlName]="'google_client_secret'" matInput>
+                </mat-form-field>
+            </div>
+           
+            <div class="sm:col-span-4">
+                <mat-form-field class="fuse-mat-no-subscript w-full">
+                    <mat-label>GOOGLE_REDIRECT</mat-label>
+                    <mat-icon class="icon-size-5" [svgIcon]="'heroicons_solid:briefcase'" matPrefix></mat-icon>
+                    <input [formControlName]="'google_redirect'" matInput>
+                </mat-form-field>
+            </div>        
+
+        </div>
+
+        <div [formGroupName]="'link'" class="grid sm:grid-cols-4 gap-6 w-full mt-8">          
+            <div class="sm:col-span-4">
+                <mat-form-field class="fuse-mat-no-subscript w-full">
+                    <mat-label>SOCIAL_FACEBOOK_LINK</mat-label>
+                    <mat-icon class="icon-size-5" [svgIcon]="'heroicons_solid:briefcase'" matPrefix></mat-icon>
+                    <input [formControlName]="'facebook'" matInput type="url">
+                </mat-form-field>
+            </div>
+            <div class="sm:col-span-4">
+                <mat-form-field class="fuse-mat-no-subscript w-full">
+                    <mat-label>SOCIAL_TWITTER_LINK</mat-label>
+                    <mat-icon class="icon-size-5" [svgIcon]="'heroicons_solid:briefcase'" matPrefix></mat-icon>
+                    <input [formControlName]="'twitter'" matInput type="url">
+                </mat-form-field>
+            </div>
+            <div class="sm:col-span-4">
+                <mat-form-field class="fuse-mat-no-subscript w-full">
+                    <mat-label>SOCIAL_INSTAGRAM_LINK</mat-label>
+                    <mat-icon class="icon-size-5" [svgIcon]="'heroicons_solid:briefcase'" matPrefix></mat-icon>
+                    <input [formControlName]="'instagram'" matInput type="url">
+                </mat-form-field>
+            </div>
+            <div class="sm:col-span-4">
+                <mat-form-field class="fuse-mat-no-subscript w-full">
+                    <mat-label>SOCIAL_PINTEREST_LINK</mat-label>
+                    <mat-icon class="icon-size-5" [svgIcon]="'heroicons_solid:briefcase'" matPrefix></mat-icon>
+                    <input [formControlName]="'pinterest'" matInput type="url">
+                </mat-form-field>
+            </div>
+            <div class="sm:col-span-4">
+                <mat-form-field class="fuse-mat-no-subscript w-full">
+                    <mat-label>SOCIAL_VIMEO_LINK</mat-label>
+                    <mat-icon class="icon-size-5" [svgIcon]="'heroicons_solid:briefcase'" matPrefix></mat-icon>
+                    <input [formControlName]="'vimeo'" matInput type="url">
+                </mat-form-field>
+            </div>
+            <div class="sm:col-span-4">
+                <mat-form-field class="fuse-mat-no-subscript w-full">
+                    <mat-label>SOCIAL_YOUTUBE_LINK</mat-label>
+                    <mat-icon class="icon-size-5" [svgIcon]="'heroicons_solid:briefcase'" matPrefix></mat-icon>
+                    <input [formControlName]="'youtube'" matInput type="url">
+                </mat-form-field>
+            </div>
+            </div>
+            <div class="sm:col-span-4">
+                <div class="flex flex-col">                   
+                    <div class="flex flex-col">
+                        <mat-checkbox
+                            class="mb-2"
+                            [checked]="true"
+                            [color]="'primary'" [formControlName]="'is_sociallogin'">
+                            Social Login
+                        </mat-checkbox>                        
+                    </div>
+                </div>
+            </div>
+
+
+        <!-- Divider -->
+        <div class="mt-11 mb-10 border-t"></div>
+
+        <!-- Actions -->
+        <div class="flex items-center justify-end">
+            <button mat-stroked-button type="button">
+                Cancel
+            </button>
+            <button class="ml-4" mat-flat-button type="button" [color]="'primary'" type="submit" (click)="save()">Save
+            </button>
+        </div>
+    </form>
+
+</div>

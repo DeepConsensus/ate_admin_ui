@@ -1,0 +1,91 @@
+<div class="w-full max-w-3xl">
+  <!-- Form -->
+  <form [formGroup]="securityForm">
+    <!-- Section -->
+    <div class="w-full">
+      <div class="text-xl">Payment Settings</div>
+      <div class="text-secondary">
+        Basic Payment Settings will be available here.
+      </div>
+    </div>
+    <div class="grid sm:grid-cols-4 gap-6 w-full mt-8">
+      <div class="sm:col-span-4">     
+          <mat-label>Default Card for Payment Mode</mat-label>  
+          <div class="flex flex-col mt-8 gt-sm:mt-0 gt-sm:ml-16">
+            <mat-radio-group
+            name="default_payment" class="flex"
+            [formControlName]="'default_payment'">
+            <mat-radio-button value="CASH"  class="mb-2">CASH</mat-radio-button> &nbsp; &nbsp;
+            <mat-radio-button value="STRIPE"  class="mb-2">STRIPE</mat-radio-button>
+          </mat-radio-group>
+          </div> 
+      </div>
+      <!-- Name -->
+      <div class="sm:col-span-4">
+        <mat-form-field class="fuse-mat-no-subscript w-full">
+          <mat-label>Site STRIPE Charge</mat-label>
+          <mat-icon
+            class="icon-size-5"
+            [svgIcon]="'heroicons_solid:briefcase'"
+            matPrefix
+          ></mat-icon>
+          <input [formControlName]="'stripe_charge'" matInput />
+        </mat-form-field>
+      </div>
+      <div class="sm:col-span-4">
+        <mat-form-field class="fuse-mat-no-subscript w-full">
+          <mat-label>STRIPE PUBLISHABLE KEY</mat-label>
+          <mat-icon
+            class="icon-size-5"
+            [svgIcon]="'heroicons_solid:user'"
+            matPrefix
+          ></mat-icon>
+          <input [formControlName]="'stripe_publish_key'" matInput />
+        </mat-form-field>
+      </div>
+
+      <!-- Username -->
+      <div class="sm:col-span-4">
+        <mat-form-field class="fuse-mat-no-subscript w-full">
+          <mat-label>STRIPE SECRET KEY</mat-label>
+          <mat-icon
+            class="icon-size-5"
+            [svgIcon]="'heroicons_solid:briefcase'"
+            matPrefix
+          ></mat-icon>
+          <input [formControlName]="'stripe_secret'" matInput />
+        </mat-form-field>
+      </div>
+
+      <div class="sm:col-span-4">
+        <mat-form-field class="fuse-mat-no-subscript w-full">
+          <mat-label>Stripe Connect Url</mat-label>
+          <mat-icon
+            class="icon-size-5"
+            [svgIcon]="'heroicons_solid:briefcase'"
+            matPrefix
+          ></mat-icon>
+          <input [formControlName]="'stripe_url'" matInput />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="mt-11 mb-10 border-t"></div>
+
+    <!-- Actions -->
+    <div class="flex items-center justify-end">
+      <button mat-stroked-button type="button">Cancel</button>
+      <button
+        class="ml-4"
+        mat-flat-button
+        type="button"
+        [color]="'primary'"
+        type="submit"
+        (click)="save()"
+      >
+        Save
+      </button>
+    </div>
+  </form>
+</div>

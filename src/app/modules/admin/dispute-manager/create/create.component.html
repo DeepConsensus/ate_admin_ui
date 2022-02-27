@@ -1,0 +1,83 @@
+<div class="flex flex-col flex-auto min-w-0">
+
+    <!-- Header -->
+    <div
+        class="flex flex-col sm:flex-row flex-0 sm:items-center sm:justify-between p-6 sm:py-8 sm:px-10 border-b bg-card dark:bg-transparent">
+        <div class="flex-1 min-w-0">
+            <!-- Breadcrumbs -->
+            <div class="flex flex-wrap items-center font-medium">
+                <div>
+                    <a class="whitespace-nowrap text-primary-500">Dispute Manager</a>
+                </div>
+                <div class="flex items-center ml-1 whitespace-nowrap">
+                    <mat-icon class="icon-size-5 text-secondary" [svgIcon]="'heroicons_solid:chevron-right'"></mat-icon>
+                    <a class="ml-1 text-primary-500">{{params?.id ? 'Update' : 'Create'}}</a>
+                </div>
+                <div class="flex items-center ml-1 whitespace-nowrap" *ngIf="params?.id">
+                    <mat-icon class="icon-size-5 text-secondary" [svgIcon]="'heroicons_solid:chevron-right'"></mat-icon>
+                    <a class="ml-1 text-primary-500">{{getItemDetails?.name}}</a>
+                </div>
+            </div>
+            <!-- Title -->
+            <div class="mt-2">
+                <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight leading-7 sm:leading-10 truncate">
+                    {{params?.id ? 'Update' : 'Create'}} Dispute Manager
+                </h2>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main -->
+    <div class="flex-auto p-6 sm:p-10">
+
+        <div class="max-w-3xl m-auto">
+
+            <form class="flex flex-col mt-4 px-8 pt-10 bg-card shadow rounded overflow-hidden" [formGroup]="createForm">
+                <p class="text-lg font-medium">Basic Dispute Manager information</p>
+                <p class="text-secondary mb-6">
+                    Enter the basic Dispute Manager information details.
+                </p>
+                <div class="flex flex-col">
+                    <mat-form-field class="flex-auto fuse-mat-dense" [floatLabel]="'always'">
+                        <mat-label>Name</mat-label>
+                        <input matInput [placeholder]="'Name'" [formControlName]="'name'">
+                    </mat-form-field>
+                    <mat-form-field class="flex-auto fuse-mat-dense" [floatLabel]="'always'">
+                        <mat-label>Email</mat-label>
+                        <input matInput [placeholder]="'Email'" type="email" [formControlName]="'email'">
+                    </mat-form-field>
+                    <mat-form-field class="flex-auto fuse-mat-dense" [floatLabel]="'always'">
+                        <mat-label>Password</mat-label>
+                        <input matInput type="password" [placeholder]="'Password'"  [formControlName]="'password'">
+                    </mat-form-field>
+                    <mat-form-field class="flex-auto fuse-mat-dense" [floatLabel]="'always'">
+                        <mat-label>Confirm Password</mat-label>
+                        <input matInput type="password" [placeholder]="'Confirm Password'"  [formControlName]="'confirmPassword'">
+                    </mat-form-field>
+                    <mat-form-field class="flex-auto fuse-mat-dense" [floatLabel]="'always'">
+                        <mat-label>Profile Image</mat-label>
+                        <input matInput [placeholder]="'Profile Image'" [formControlName]="'image'">
+                    </mat-form-field>
+                    <mat-form-field class="flex-auto fuse-mat-dense" [floatLabel]="'always'">
+                        <mat-label>Contact Number</mat-label>
+                        <input matInput [placeholder]="'Phone'" type="tel" [formControlName]="'contactNumber'">
+                       
+                    </mat-form-field>                       
+                 
+                </div>
+
+                <div class="flex items-center justify-end border-t -mx-8 mt-8 px-8 py-5 bg-gray-50 dark:bg-gray-700">
+                    <button mat-button [routerLink]="[params?.id ? '../../' : '../']">
+                       Cancel
+                    </button>
+                    <button class="px-6 ml-3" mat-flat-button [color]="'primary'" type="submit" (click)="save()">
+                        {{params?.id ? 'Update' : 'Save'}}
+                    </button>
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+
+</div>

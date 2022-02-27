@@ -1,0 +1,300 @@
+<div class="flex flex-col flex-auto min-w-0">
+
+    <!-- Header -->
+    <div
+        class="flex flex-col sm:flex-row flex-0 sm:items-center sm:justify-between p-6 sm:py-8 sm:px-10 border-b bg-card dark:bg-transparent">
+        <div class="flex-1 min-w-0">
+            <!-- Breadcrumbs -->
+            <div class="flex flex-wrap items-center font-medium">
+                <div>
+                    <a class="whitespace-nowrap text-primary-500">Restaurant</a>
+                </div>
+                <div class="flex items-center ml-1 whitespace-nowrap">
+                    <mat-icon class="icon-size-5 text-secondary" [svgIcon]="'heroicons_solid:chevron-right'"></mat-icon>
+                    <a class="ml-1 text-primary-500">Restaurant Detail</a>
+                </div>
+            </div>
+            <!-- Title -->
+            <div class="mt-2">
+                <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight leading-7 sm:leading-10 truncate">
+                    Restaurant Detail
+                </h2>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main -->
+    <div class="flex-auto p-6 sm:p-10">
+
+        <div class="max-w-3xl m-auto">
+
+            <form class="flex flex-col mt-4 px-8 pt-10 bg-card shadow rounded overflow-hidden">
+                <p class="text-lg font-medium">Basic Restaurant information</p>
+                <p class="text-secondary mb-6">
+                    Enter the basic Restaurant information details.
+                </p>
+                <div class="flex flex-col">
+                    <mat-form-field class="flex-auto fuse-mat-dense" [floatLabel]="'always'">
+                        <mat-label>Restaurant Name</mat-label>
+                        <input matInput [placeholder]="'Restaurant Name'">
+                    </mat-form-field>
+                    <mat-form-field class="flex-auto fuse-mat-dense" [floatLabel]="'always'">
+                        <mat-label>Cuisine</mat-label>
+                        <mat-select [placeholder]="'Select Cuisine'">
+                            <mat-option value="japanese-food">Japanese Food</mat-option>
+                            <mat-option value="italian-cuisine">Italian Cuisine</mat-option>
+                            <mat-option value="turkish-cuisine">Turkish Cuisine</mat-option>
+                            <mat-option value="chinese-cuisine">Chinese Cuisine</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field class="flex-auto fuse-mat-dense fuse-mat-textarea" [floatLabel]="'always'">
+                        <mat-label>About us</mat-label>
+                        <textarea matInput [placeholder]="'About us'" [rows]="3"></textarea>
+                    </mat-form-field>
+                    <mat-form-field class="flex-auto fuse-mat-dense" [floatLabel]="'always'">
+                        <mat-label>Email</mat-label>
+                        <mat-chip-list #emailChipList>
+                            <mat-chip *ngFor="let email of emailList; let i=index" [selectable]="false"
+                                [removable]="true" (removed)="removeEmailChip(i)">
+                                {{email}}
+                                <mat-icon matChipRemove>cancel</mat-icon>
+                            </mat-chip>
+                            <input placeholder="Enter email" #emailInput [matChipInputFor]="emailChipList"
+                                [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                                (matChipInputTokenEnd)="addEmailChip($event)" (blur)="addEmailChip($event)">
+                        </mat-chip-list>
+                        <!-- <input matInput [placeholder]="'Email'" type="email"> -->
+                    </mat-form-field>
+                    <mat-form-field class="flex-auto fuse-mat-dense" [floatLabel]="'always'">
+                        <mat-label>Phone</mat-label>
+                        <input matInput [placeholder]="'Phone'">
+                    </mat-form-field>
+                    <mat-form-field class="flex-auto fuse-mat-dense" [floatLabel]="'always'">
+                        <mat-label>Password</mat-label>
+                        <input matInput [placeholder]="'Password'" type="password">
+                    </mat-form-field>
+                    <mat-form-field class="flex-auto fuse-mat-dense" [floatLabel]="'always'">
+                        <mat-label>Confirm Password</mat-label>
+                        <input matInput [placeholder]="'Confirm Password'" type="password">
+                    </mat-form-field>
+                    <mat-form-field class="flex-auto fuse-mat-dense" [floatLabel]="'always'">
+                        <mat-label>Address</mat-label>
+                        <input matInput [placeholder]="'Address'" #search>
+                    </mat-form-field>
+                    <div class="flex mb-4">
+                        <agm-map class="flex-auto" [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
+                            <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="true"
+                                (dragEnd)="markerDragEnd($event)"></agm-marker>
+                        </agm-map>
+                    </div>
+                    <mat-form-field class="flex-auto fuse-mat-dense" [floatLabel]="'always'">
+                        <mat-label>Pure Vegetarian?</mat-label>
+                        <mat-select [placeholder]="'Select'">
+                            <mat-option value="yes">Yes</mat-option>
+                            <mat-option value="no">No</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field class="flex-auto fuse-mat-dense" [floatLabel]="'always'">
+                        <mat-label>Status</mat-label>
+                        <mat-select [placeholder]="'Select Status'">
+                            <mat-option value="active">Active</mat-option>
+                            <mat-option value="inactive">Inactive</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+                <mat-divider class="mt-6 mb-10"></mat-divider>
+
+                <p class="text-lg font-medium">Working Hours</p>
+                <p class="text-secondary mb-6">
+                    Configure Working Hours Details
+                </p>
+
+                <div class="flex flex-col">
+                    <div class="flex flex-row items-center justify-between mb-4">
+                        <mat-checkbox #everyday [value]="true">Everyday?</mat-checkbox>
+                        <div class="flex clex-row gap-4" *ngIf="everyday?.checked" @expandCollapse>
+                            <mat-form-field class="fuse-mat-dense" [floatLabel]="'always'">
+                                <mat-label>Opening Time</mat-label>
+                                <input matInput [placeholder]="'Opening Time'">
+                            </mat-form-field>
+                            <mat-form-field class="fuse-mat-dense" [floatLabel]="'always'">
+                                <mat-label>Closing Time</mat-label>
+                                <input matInput [placeholder]="'Closing Time'">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="flex flex-col" *ngIf="!everyday?.checked" @expandCollapse>
+                        <div class="flex flex-row items-center justify-between mb-4">
+                            <mat-checkbox [value]="true">Monday</mat-checkbox>
+                            <div class="flex clex-row gap-4">
+                                <mat-form-field class="fuse-mat-dense" [floatLabel]="'always'">
+                                    <mat-label>Opening Time</mat-label>
+                                    <input matInput [placeholder]="'Opening Time'">
+                                </mat-form-field>
+                                <mat-form-field class="fuse-mat-dense" [floatLabel]="'always'">
+                                    <mat-label>Closing Time</mat-label>
+                                    <input matInput [placeholder]="'Closing Time'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="flex flex-row items-center justify-between mb-4">
+                            <mat-checkbox [value]="true">Tuesday</mat-checkbox>
+                            <div class="flex clex-row gap-4">
+                                <mat-form-field class="fuse-mat-dense" [floatLabel]="'always'">
+                                    <mat-label>Opening Time</mat-label>
+                                    <input matInput [placeholder]="'Opening Time'">
+                                </mat-form-field>
+                                <mat-form-field class="fuse-mat-dense" [floatLabel]="'always'">
+                                    <mat-label>Closing Time</mat-label>
+                                    <input matInput [placeholder]="'Closing Time'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="flex flex-row items-center justify-between mb-4">
+                            <mat-checkbox [value]="true">Wednesday</mat-checkbox>
+                            <div class="flex clex-row gap-4">
+                                <mat-form-field class="fuse-mat-dense" [floatLabel]="'always'">
+                                    <mat-label>Opening Time</mat-label>
+                                    <input matInput [placeholder]="'Opening Time'">
+                                </mat-form-field>
+                                <mat-form-field class="fuse-mat-dense" [floatLabel]="'always'">
+                                    <mat-label>Closing Time</mat-label>
+                                    <input matInput [placeholder]="'Closing Time'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="flex flex-row items-center justify-between mb-4">
+                            <mat-checkbox [value]="true">Thursday</mat-checkbox>
+                            <div class="flex clex-row gap-4">
+                                <mat-form-field class="fuse-mat-dense" [floatLabel]="'always'">
+                                    <mat-label>Opening Time</mat-label>
+                                    <input matInput [placeholder]="'Opening Time'">
+                                </mat-form-field>
+                                <mat-form-field class="fuse-mat-dense" [floatLabel]="'always'">
+                                    <mat-label>Closing Time</mat-label>
+                                    <input matInput [placeholder]="'Closing Time'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="flex flex-row items-center justify-between mb-4">
+                            <mat-checkbox [value]="true">Friday</mat-checkbox>
+                            <div class="flex clex-row gap-4">
+                                <mat-form-field class="fuse-mat-dense" [floatLabel]="'always'">
+                                    <mat-label>Opening Time</mat-label>
+                                    <input matInput [placeholder]="'Opening Time'">
+                                </mat-form-field>
+                                <mat-form-field class="fuse-mat-dense" [floatLabel]="'always'">
+                                    <mat-label>Closing Time</mat-label>
+                                    <input matInput [placeholder]="'Closing Time'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="flex flex-row items-center justify-between mb-4">
+                            <mat-checkbox [value]="true">Saturday</mat-checkbox>
+                            <div class="flex clex-row gap-4">
+                                <mat-form-field class="fuse-mat-dense" [floatLabel]="'always'">
+                                    <mat-label>Opening Time</mat-label>
+                                    <input matInput [placeholder]="'Opening Time'">
+                                </mat-form-field>
+                                <mat-form-field class="fuse-mat-dense" [floatLabel]="'always'">
+                                    <mat-label>Closing Time</mat-label>
+                                    <input matInput [placeholder]="'Closing Time'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="flex flex-row items-center justify-between mb-4">
+                            <mat-checkbox [value]="true">Sunday</mat-checkbox>
+                            <div class="flex clex-row gap-4">
+                                <mat-form-field class="fuse-mat-dense" [floatLabel]="'always'">
+                                    <mat-label>Opening Time</mat-label>
+                                    <input matInput [placeholder]="'Opening Time'">
+                                </mat-form-field>
+                                <mat-form-field class="fuse-mat-dense" [floatLabel]="'always'">
+                                    <mat-label>Closing Time</mat-label>
+                                    <input matInput [placeholder]="'Closing Time'">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <mat-divider class="mt-6 mb-10"></mat-divider>
+
+                <p class="text-lg font-medium">Pricing Details</p>
+                <p class="text-secondary mb-6">
+                    Configure Product Pricing Details
+                </p>
+
+                <div class="flex flex-col">
+                    <mat-form-field class="flex-auto fuse-mat-dense" [floatLabel]="'always'">
+                        <mat-label>Price</mat-label>
+                        <input matInput type="number" [placeholder]="'Price'">
+                    </mat-form-field>
+                    <mat-form-field class="flex-auto fuse-mat-dense" [floatLabel]="'always'">
+                        <mat-label>Offering</mat-label>
+                        <input matInput type="number" [placeholder]="'Offering'">
+                    </mat-form-field>
+                    <mat-form-field class="flex-auto fuse-mat-dense" [floatLabel]="'always'">
+                        <mat-label>Offer Type</mat-label>
+                        <mat-select [placeholder]="'Select Offer Type'">
+                            <mat-option value="amount">Amount</mat-option>
+                            <mat-option value="percentage">Percentage</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <div class="flex-auto">
+                        <div class="font-medium">Restaurant Banner</div>
+                        <div class="mt-1 h-40 rounded-md border border-gray-300 shadow-sm overflow-hidden">
+                            <div *ngIf="false"
+                                class="relative flex justify-center items-center w-full h-40 cursor-pointer">
+                                <div class="text-center">
+                                    <mat-icon svgIcon="heroicons_outline:upload"></mat-icon>
+                                    <div class="font-medium mt-2">Drag and Drop or Click here to Upload</div>
+                                </div>
+                                <input class="w-full h-full opacity-0 absolute top-0 cursor-pointer" type="file">
+                            </div>
+                            <div *ngIf="true" class="relative flex w-full h-40">
+                                <button mat-stroked-button class="absolute top-1 right-1">REMOVE</button>
+                                <img class="object-contain w-full h-40"
+                                    src="https://5.imimg.com/data5/JP/SC/NT/ANDROID-53662215/product-jpeg-500x500.jpg">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex-auto mt-3">
+                        <div class="font-medium">Special Food Image</div>
+                        <div class="mt-1 h-40 rounded-md border border-gray-300 shadow-sm overflow-hidden">
+                            <div *ngIf="true"
+                                class="relative flex justify-center items-center w-full h-40 cursor-pointer">
+                                <div class="text-center">
+                                    <mat-icon svgIcon="heroicons_outline:upload"></mat-icon>
+                                    <div class="font-medium mt-2">Drag and Drop or Click here to Upload</div>
+                                </div>
+                                <input class="w-full h-full opacity-0 absolute top-0 cursor-pointer" type="file">
+                            </div>
+                            <div *ngIf="false" class="relative flex w-full h-40">
+                                <button mat-stroked-button class="absolute top-1 right-1">REMOVE</button>
+                                <img class="object-contain w-full h-40"
+                                    src="https://5.imimg.com/data5/JP/SC/NT/ANDROID-53662215/product-jpeg-500x500.jpg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="flex items-center justify-end border-t -mx-8 mt-8 px-8 py-5 bg-gray-50 dark:bg-gray-700">
+                    <button mat-button [routerLink]="['../']">
+                        Cancel
+                    </button>
+                    <button class="px-6 ml-3" mat-flat-button [color]="'primary'">
+                        Save
+                    </button>
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+
+</div>

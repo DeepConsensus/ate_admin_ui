@@ -1,0 +1,149 @@
+<div class="w-full max-w-3xl">
+
+    <!-- Form -->
+    <form [formGroup]="appForm">
+
+        <!-- Section -->
+        <div class="w-full">
+            <div class="text-xl">APP Settings</div>
+            <div class="text-secondary">Basic APP Settings will be available here.</div>
+        </div>
+        <div class="grid sm:grid-cols-4 gap-6 w-full mt-8">
+            <!-- Name -->
+            <div class="sm:col-span-4">
+                <mat-form-field class="fuse-mat-no-subscript w-full">
+                    <mat-label>ANDROID_ENV</mat-label>
+                    <mat-icon class="icon-size-5" [svgIcon]="'heroicons_solid:briefcase'" matPrefix></mat-icon>
+                    <input [formControlName]="'android_env'" matInput>
+                </mat-form-field>
+            </div>
+            <div class="sm:col-span-4">
+                <mat-form-field class="fuse-mat-no-subscript w-full">
+                    <mat-label>ANDROID_PUSH_KEY</mat-label>
+                    <mat-icon class="icon-size-5" [svgIcon]="'heroicons_solid:briefcase'" matPrefix></mat-icon>
+                    <input [formControlName]="'android_pushkey'" matInput>
+                </mat-form-field>
+            </div>
+           
+            <!-- Username -->
+            <div class="sm:col-span-4">
+                <mat-form-field class="fuse-mat-no-subscript w-full">
+                    <mat-label>IOS_USER_ENV</mat-label>
+                    <mat-icon class="icon-size-5" [svgIcon]="'heroicons_solid:briefcase'" matPrefix></mat-icon>
+                    <input [formControlName]="'ios_user_env'" matInput>
+                </mat-form-field>
+            </div>
+
+            <div class="sm:col-span-4">
+                <mat-form-field class="fuse-mat-no-subscript w-full">
+                    <mat-label>IOS_PROVIDER_ENV</mat-label>
+                    <mat-icon class="icon-size-5" [svgIcon]="'heroicons_solid:briefcase'" matPrefix></mat-icon>
+                    <input [formControlName]="'ios_provider_env'" matInput>
+                </mat-form-field>
+            </div>
+            <div class="sm:col-span-4">
+                <mat-form-field class="fuse-mat-no-subscript w-full">
+                    <mat-label>IOS_APP_LINK</mat-label>
+                    <mat-icon class="icon-size-5" [svgIcon]="'heroicons_solid:briefcase'" matPrefix></mat-icon>
+                    <input [formControlName]="'ios_applink'" matInput>
+                </mat-form-field>
+            </div>
+
+            <div class="sm:col-span-4">
+                <mat-form-field class="fuse-mat-no-subscript w-full">
+                    <mat-label>ANDROID_APP_LINK</mat-label>
+                    <mat-icon class="icon-size-5" [svgIcon]="'heroicons_solid:briefcase'" matPrefix></mat-icon>
+                    <input [formControlName]="'android_applink'" matInput>
+                </mat-form-field>
+            </div>
+
+            <div class="sm:col-span-4">
+                <mat-form-field class="fuse-mat-no-subscript w-full">
+                    <mat-label>IOS PROVIDER PUSH PASSWORD</mat-label>
+                    <mat-icon class="icon-size-5" [svgIcon]="'heroicons_solid:briefcase'" matPrefix></mat-icon>
+                    <input [formControlName]="'iosprovider_pushpassword'" matInput>
+                </mat-form-field>
+            </div>
+            <div class="sm:col-span-4">
+                <mat-form-field class="fuse-mat-no-subscript w-full">
+                    <mat-label>IOS_SHOP_ENV</mat-label>
+                    <mat-icon class="icon-size-5" [svgIcon]="'heroicons_solid:briefcase'" matPrefix></mat-icon>
+                    <input [formControlName]="'iosshop_env'" matInput>
+                </mat-form-field>
+            </div>
+
+            <div class="sm:col-span-4">
+                <mat-form-field class="fuse-mat-no-subscript w-full">
+                    <mat-label>IOS SHOP PUSH PASSWORD</mat-label>
+                    <mat-icon class="icon-size-5" [svgIcon]="'heroicons_solid:briefcase'" matPrefix></mat-icon>
+                    <input [formControlName]="'iosshop_pushpassword'" matInput>
+                </mat-form-field>
+            </div>
+           
+            <div class="sm:col-span-4">
+                <mat-form-field class="fuse-mat-no-subscript w-full">
+                    <mat-label>IOS USER PUSH PASSWORD</mat-label>
+                    <mat-icon class="icon-size-5" [svgIcon]="'heroicons_solid:briefcase'" matPrefix></mat-icon>
+                    <input [formControlName]="'iosuser_pushpassword'" matInput>
+                </mat-form-field>
+            </div>
+            <div class="sm:col-span-4">
+                <mat-form-field class="fuse-mat-no-subscript w-full">
+                    <mat-label>IOS_USERAPP_TOPIC</mat-label>
+                    <mat-icon class="icon-size-5" [svgIcon]="'heroicons_solid:briefcase'" matPrefix></mat-icon>
+                    <input [formControlName]="'iosuser_topic'" matInput>
+                </mat-form-field>
+            </div>
+            <div class="sm:col-span-4">
+                <mat-form-field class="fuse-mat-no-subscript w-full">
+                    <mat-label>IOS_USERAPP_PASSWORD</mat-label>
+                    <mat-icon class="icon-size-5" [svgIcon]="'heroicons_solid:briefcase'" matPrefix></mat-icon>
+                    <input [formControlName]="'iosuser_apppassword'" matInput>
+                </mat-form-field>
+            </div>
+            <div class="sm:col-span-4">
+                <mat-form-field class="fuse-mat-no-subscript w-full">
+                    <mat-label>IOS_PROVIDERAPP_TOPIC</mat-label>
+                    <mat-icon class="icon-size-5" [svgIcon]="'heroicons_solid:briefcase'" matPrefix></mat-icon>
+                    <input [formControlName]="'iosprovider_apptopic'" matInput>
+                </mat-form-field>
+            </div>
+            <div class="sm:col-span-4">
+                <mat-form-field class="fuse-mat-no-subscript w-full">
+                    <mat-label>IOS_PROVIDERAPP_PASSWORD</mat-label>
+                    <mat-icon class="icon-size-5" [svgIcon]="'heroicons_solid:briefcase'" matPrefix></mat-icon>
+                    <input [formControlName]="'iosprovider_apppassword'" matInput>
+                </mat-form-field>
+            </div>
+            <div class="sm:col-span-4">
+                <mat-form-field class="fuse-mat-no-subscript w-full">
+                    <mat-label>IOS_SHOPAPP_TOPIC</mat-label>
+                    <mat-icon class="icon-size-5" [svgIcon]="'heroicons_solid:briefcase'" matPrefix></mat-icon>
+                    <input [formControlName]="'iosshop_apptopic'" matInput>
+                </mat-form-field>
+            </div>
+            <div class="sm:col-span-4">
+                <mat-form-field class="fuse-mat-no-subscript w-full">
+                    <mat-label>IOS_SHOPAPP_PASSWORD</mat-label>
+                    <mat-icon class="icon-size-5" [svgIcon]="'heroicons_solid:briefcase'" matPrefix></mat-icon>
+                    <input [formControlName]="'iosshop_apppassword'" matInput>
+                </mat-form-field>
+            </div>
+
+        </div>
+
+
+        <!-- Divider -->
+        <div class="mt-11 mb-10 border-t"></div>
+
+        <!-- Actions -->
+        <div class="flex items-center justify-end">
+            <button mat-stroked-button type="button">
+                Cancel
+            </button>
+            <button class="ml-4" mat-flat-button type="button" [color]="'primary'" type="submit" (click)="save()">Save
+            </button>
+        </div>
+    </form>
+
+</div>

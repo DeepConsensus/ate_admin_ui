@@ -1,0 +1,155 @@
+<div class="w-full max-w-3xl">
+
+    <!-- Form -->
+    <form [formGroup]="accountForm">
+
+        <!-- Section -->
+        <div class="w-full">
+            <div class="text-xl">Site Settings</div>
+            <div class="text-secondary">Basic Site Settings will be available here.</div>
+        </div>
+        <div class="grid sm:grid-cols-4 gap-6 w-full mt-8">
+            <!-- Name -->
+            <div class="sm:col-span-4">
+                <mat-form-field class="fuse-mat-no-subscript w-full">
+                    <mat-label>Title</mat-label>
+                    <mat-icon class="icon-size-5" [svgIcon]="'heroicons_solid:briefcase'" matPrefix></mat-icon>
+                    <input [formControlName]="'title'" matInput>
+                </mat-form-field>
+            </div>
+            <div class="sm:col-span-4">
+                <mat-form-field class="fuse-mat-no-subscript w-full">
+                    <mat-label>The copyright of the site</mat-label>
+                    <mat-icon class="icon-size-5" [svgIcon]="'heroicons_solid:user'" matPrefix></mat-icon>
+                    <input [formControlName]="'copyright'" matInput>
+                </mat-form-field>
+            </div>
+            <div class="sm:col-span-4">
+                <mat-form-field class="fuse-mat-no-subscript w-full">
+                    <mat-label>Currency</mat-label>
+                    <mat-icon class="icon-size-5" [svgIcon]="'heroicons_solid:globe-alt'" matPrefix></mat-icon>
+                    <mat-select [formControlName]="'currency'" [placeholder]="'Select Currency'">
+                        <mat-option *ngFor="let dp of currencyList" [value]="dp.name">
+                            {{dp.name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <!-- Username -->
+            <div class="sm:col-span-4">
+                <mat-form-field class="fuse-mat-no-subscript w-full">
+                    <mat-label>Currency Code</mat-label>
+                    <mat-icon class="icon-size-5" [svgIcon]="'heroicons_solid:briefcase'" matPrefix></mat-icon>
+                    <input [formControlName]="'currencycode'" matInput>
+                </mat-form-field>
+            </div>
+
+            <div class="sm:col-span-2">
+                <mat-form-field class="fuse-mat-no-subscript w-full">
+                    <mat-label>Twilio Token</mat-label>
+                    <mat-icon class="icon-size-5" [svgIcon]="'heroicons_solid:briefcase'" matPrefix></mat-icon>
+                    <input [formControlName]="'twilotoken'" matInput>
+                </mat-form-field>
+            </div>
+            <div class="sm:col-span-2">
+                <mat-form-field class="fuse-mat-no-subscript w-full">
+                    <mat-label>Twilio Phone Number</mat-label>
+                    <mat-icon class="icon-size-5" [svgIcon]="'heroicons_solid:phone'" matPrefix></mat-icon>
+                    <input [formControlName]="'twilionumber'" matInput>
+                </mat-form-field>
+            </div>
+
+            <div class="sm:col-span-4">
+                <mat-form-field class="fuse-mat-no-subscript w-full">
+                    <mat-label>PUBNUB_PUB_KEY</mat-label>
+                    <mat-icon class="icon-size-5" [svgIcon]="'heroicons_solid:briefcase'" matPrefix></mat-icon>
+                    <input [formControlName]="'pub_pub_key'" matInput>
+                </mat-form-field>
+            </div>
+
+            <div class="sm:col-span-4">
+                <mat-form-field class="fuse-mat-no-subscript w-full">
+                    <mat-label>PUBNUB_SUB_KEY</mat-label>
+                    <mat-icon class="icon-size-5" [svgIcon]="'heroicons_solid:briefcase'" matPrefix></mat-icon>
+                    <input [formControlName]="'pub_sub_key'" matInput>
+                </mat-form-field>
+            </div>
+            <div class="sm:col-span-4">
+                <mat-form-field class="fuse-mat-no-subscript w-full">
+                    <mat-label>CLIENT ID</mat-label>
+                    <mat-icon class="icon-size-5" [svgIcon]="'heroicons_solid:briefcase'" matPrefix></mat-icon>
+                    <input [formControlName]="'client_id'" matInput>
+                </mat-form-field>
+            </div>
+
+            <div class="sm:col-span-4">
+                <mat-form-field class="fuse-mat-no-subscript w-full">
+                    <mat-label>CLIENT SECRET</mat-label>
+                    <mat-icon class="icon-size-5" [svgIcon]="'heroicons_solid:briefcase'" matPrefix></mat-icon>
+                    <input [formControlName]="'client_secret'" matInput>
+                </mat-form-field>
+            </div>
+            <div class="sm:col-span-4">
+                <mat-form-field class="fuse-mat-no-subscript w-full">
+                    <mat-label>Default language</mat-label>
+                    <mat-icon class="icon-size-5" [svgIcon]="'heroicons_solid:globe-alt'" matPrefix></mat-icon>
+                    <mat-select [formControlName]="'default_language'">
+                        <mat-option *ngFor="let lan of language" [value]="lan.name">
+                            {{lan.name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="sm:col-span-4">
+                <mat-form-field class="fuse-mat-no-subscript w-full">
+                    <mat-label>CUSTOMER USER NAME</mat-label>
+                    <mat-icon class="icon-size-5" [svgIcon]="'heroicons_solid:briefcase'" matPrefix></mat-icon>
+                    <input [formControlName]="'customer_username'" matInput>
+                </mat-form-field>
+            </div>
+            <div class="sm:col-span-4">
+                <mat-form-field class="fuse-mat-no-subscript w-full">
+                    <mat-label>Terms and conditions (User)</mat-label>
+                    <mat-icon class="icon-size-5" [svgIcon]="'heroicons_solid:briefcase'" matPrefix></mat-icon>
+                    <input [formControlName]="'terms_user'" matInput>
+                </mat-form-field>
+            </div>
+            <div class="sm:col-span-4">
+                <mat-form-field class="fuse-mat-no-subscript w-full">
+                    <mat-label>Terms & conditions (Restaurants)</mat-label>
+                    <mat-icon class="icon-size-5" [svgIcon]="'heroicons_solid:briefcase'" matPrefix></mat-icon>
+                    <input [formControlName]="'terms_restaurants'" matInput>
+                </mat-form-field>
+            </div>
+            <div class="sm:col-span-4">
+                <mat-form-field class="fuse-mat-no-subscript w-full">
+                    <mat-label>Default position</mat-label>
+                    <mat-icon class="icon-size-5" [svgIcon]="'heroicons_solid:briefcase'" matPrefix></mat-icon>
+                    <input [formControlName]="'default_location'" matInput>
+                </mat-form-field>
+            </div>
+            <div class="sm:col-span-4">
+                <mat-form-field class="fuse-mat-no-subscript w-full">
+                    <mat-label>Amount of referral</mat-label>
+                    <mat-icon class="icon-size-5" [svgIcon]="'heroicons_solid:briefcase'" matPrefix></mat-icon>
+                    <input [formControlName]="'amount_referral'" matInput>
+                </mat-form-field>
+            </div>
+
+        </div>
+
+
+        <!-- Divider -->
+        <div class="mt-11 mb-10 border-t"></div>
+
+        <!-- Actions -->
+        <div class="flex items-center justify-end">
+            <button mat-stroked-button type="button">
+                Cancel
+            </button>
+            <button class="ml-4" mat-flat-button type="button" [color]="'primary'" type="submit" (click)="save()">Save
+            </button>
+        </div>
+    </form>
+
+</div>
